@@ -16,11 +16,11 @@ const UserBox = styled(Box)({
     // justifyContent: "center"
 })
 const Add = () => {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
     return (
         <>
-            <Tooltip title="Add new Post" onClick={e => setOpen(true)}
-                sx={{ position: "fixed", bottom: 20, left: { md: 280, xs: 'calc(50% - 25px)' } }}>
+            <Tooltip  title="Add new Post" onClick={e => setOpen(true)}
+                sx={{ position: "fixed", bottom: 20,marginLeft:"40px"}}>
                 <Fab color='primary' aria-label="add">
                     <AddIcon />
                 </Fab>

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import Sidebar from './components/Sidebar';
+import Sidebar1 from './components/Sidebar1';
 import Feed from './components/Feed';
 import Rightbar from './components/Rightbar';
 import Navbar from "./components/Navbar";
 import Add from './components/Add';
-import Sidedrawer from './components/Sidedrawer';
 import { Box, Container, Drawer, Stack, ThemeProvider, createTheme } from "@mui/material";
 
 const App = () => {
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = useState("light");
+  const [open1,setOpen1] = useState("true");
   const darkTheme = createTheme({
     palette: {
       mode: mode
@@ -16,15 +16,13 @@ const App = () => {
   })
   return (
     <ThemeProvider theme={darkTheme}>
-      <Box bgcolor={"background.default"} /*color={mode === 'dark'? "white" : "dark"}*/ color={"text.primary"}>
-        {/* <Sidedrawer/> */}
-        <Navbar />
+      <Box bgcolor={"background.default"} color={"text.primary"}>
+        <Navbar setOpen1={setOpen1} open1={open1}/>
         <Stack direction="row" spacing={2} justifyContent="space-between">
-          <Sidebar setMode={setMode} mode={mode} />
+          <Sidebar1 setMode={setMode} mode={mode} open1={open1}/>
           <Feed />
           <Rightbar />
         </Stack>
-        <Add />
       </Box>
     </ThemeProvider>
   )

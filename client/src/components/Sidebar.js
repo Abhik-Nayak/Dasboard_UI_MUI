@@ -7,11 +7,18 @@ import GroupIcon from '@mui/icons-material/Group';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import PersonIcon from '@mui/icons-material/Person';
 import ModeNight from '@mui/icons-material/ModeNight';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-const Sidebar = ({setMode,mode}) => {
+const Sidebar = ({setMode,mode,open1}) => {
+    const [val, setVal] = useState("block")
+    console.log(open1)
+    useEffect(()=>{
+        if(open1 === "false") setVal("block")
+        if(open1 === "true") setVal("none")
+    },[open1])
+
     return (
-        <Box flex={1} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
+        <Box flex={1} p={2} sx={{ display: { xs: "none", sm: val } }}>
             <Box position="fixed">
                 <List>
                     <ListItem disablePadding>

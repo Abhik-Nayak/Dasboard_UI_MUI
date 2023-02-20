@@ -30,12 +30,12 @@ const UserBox = styled("div")(({ theme })=>({
   alignItems: 'center',
   [theme.breakpoints.up("sm")]: {display: "none"}
 }))
-const Navbar = () => {
+const Navbar = ({open1,setOpen1}) => {
   const [open,setOpen] = useState(false);
   return (
     <AppBar position='sticky'>
       <StyledToolbar>
-        <Typography varient="h6" sx={{ display: { xs: "none", sm: "block"}}}>
+        <Typography onClick={e=>setOpen1( open1 === "true" ? "false" : "true")} varient="h6" sx={{ display: { xs: "none", sm: "block"}}}>
            Social
         </Typography>
         <Pets sx={{ display: { xs: "block", sm: "none"}}}/>
@@ -47,7 +47,7 @@ const Navbar = () => {
           <Badge badgeContent={4} color='error'>
             <Notifications color="white" />
           </Badge>
-          <Avatar sx={{ width: 30, height: 30}} onClick={e=>setOpen(true)}/>
+          <Avatar sx={{ width: 30, height: 30,cursor: 'pointer'}} onClick={e=>setOpen(true)} />
         </Icons>
         <UserBox >
           <Avatar sx={{ width: 30, height: 30}} onClick={e=>setOpen(true)}/>

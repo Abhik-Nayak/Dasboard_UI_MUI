@@ -2,19 +2,18 @@ import { Box, ListItemButton, ListItemIcon, ListItemText, List, ListItem, Switch
 import { Home, Store } from '@mui/icons-material';
 import { AccountBox } from '@mui/icons-material';
 import { Settings } from '@mui/icons-material';
-import { Link } from "react-router-dom";
 import ArticleIcon from '@mui/icons-material/Article';
 import GroupIcon from '@mui/icons-material/Group';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import PersonIcon from '@mui/icons-material/Person';
 import ModeNight from '@mui/icons-material/ModeNight';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 
 const Sidebar = ({ setMode, mode, open1 }) => {
     const [val, setVal] = useState("block")
     console.log(open1)
     useEffect(() => {
-        if (open1 === "false") setVal("300px")
+        if (open1 === "false") setVal("200px")
         if (open1 === "true") setVal("0px")
     }, [open1])
 
@@ -93,18 +92,16 @@ const Sidebar = ({ setMode, mode, open1 }) => {
         //         </List>
         //     </Box>
         // </Box>
-        <Box sx={{ width: val, transition: "all 240ms linear" }}>
+        <Box sx={{  width: val, transition: "all 240ms linear" }}>
             <Box sx={{ position: "fixed", width: "100%" }}>
-                <List sx={{ width: val, transition: "all 240ms linear" }}>
+                <List sx={{  width: val, transition: "all 240ms linear" }}>
                     <ListItem disablePadding>
-                        <Link to="/">
-                            <ListItemButton component="a" >
-                                <ListItemIcon>
-                                    <Home />
-                                </ListItemIcon>
-                                <ListItemText primary="Homepage" />
-                            </ListItemButton>
-                        </Link>
+                        <ListItemButton component="a" href="#">
+                            <ListItemIcon>
+                                <Home />
+                            </ListItemIcon>
+                            <ListItemText primary="Homepage" />
+                        </ListItemButton>
                     </ListItem>
                 </List>
                 <List>
@@ -149,14 +146,12 @@ const Sidebar = ({ setMode, mode, open1 }) => {
                 </List>
                 <List>
                     <ListItem disablePadding>
-                        <Link to="/settings">
-                            <ListItemButton component="a" >
-                                <ListItemIcon>
-                                    <Settings />
-                                </ListItemIcon>
-                                <ListItemText primary="Settings" />
-                            </ListItemButton>
-                        </Link>
+                        <ListItemButton component="a" href="#">
+                            <ListItemIcon>
+                                <Settings />
+                            </ListItemIcon>
+                            <ListItemText primary="Settings" />
+                        </ListItemButton>
                     </ListItem>
                 </List>
                 <List>

@@ -1,12 +1,15 @@
-import { Container } from '@mui/material'
-import { Box } from '@mui/system'
 import React from 'react'
-
+import { Box} from "@mui/material";
+import Posts from './Posts';
+import Add from './Add';
 const Feed = () => {
   return (
-    <Container sx={{background:"white",height:"300px"}}>
-        dfs
-    </Container>
+    <Box flex={4} p={0} sx={{position: "relative"}} bgcolor={"background.default"}  >
+      <Add  />
+      <Posts/>
+      <Posts/>
+      <Posts/>
+    </Box>
   )
 }
 

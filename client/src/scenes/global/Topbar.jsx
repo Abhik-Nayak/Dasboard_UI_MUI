@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import { Box, IconButton, useTheme } from "@mui/material";
 import { useContext } from "react";
 import { ColorModeContext, tokens } from "../../theme";
@@ -12,10 +12,16 @@ import SearchIcon from "@mui/icons-material/Search";
 
 const Topbar = () => {
   const theme = useTheme();
+  console.log(theme);
   const colors = tokens(theme.palette.mode);
+  // useEffect(()=>{
+  //   console.log(headerColor);
+  //   if(colors==="dark") setHeaderColor("none")
+  //   if(colors === "light") setHeaderColor("#3A98B9")
+  // },[colors])
   const colorMode = useContext(ColorModeContext);
   return (
-    <Box display="flex" justifyContent="space-between" p={2}>
+    <Box display="flex" justifyContent="space-between" p={2} backgroundColor={theme.palette.mode === "light"? "#3A98B9":""}>
       {/* Search */}
       <Box display="flex" backgroundColor={colors.primary[400]} borderRadius="3px">
         <InputBase sx={{ ml: 2, flex: 1 }} placeholder="search" />
@@ -24,7 +30,7 @@ const Topbar = () => {
         </IconButton>
       </Box>
       {/* Icons */}
-      <Box display={"flex"}>
+      <Box display="flex">
         <IconButton onClick={colorMode.toggleColorMode}>
           {theme.palette.mode === "dark" ? (
             <DarkModeOutlinedIcon />
@@ -32,6 +38,21 @@ const Topbar = () => {
             <LightModeOutlinedIcon />
           )
           }
+        </IconButton>
+        <IconButton>
+          <NotificationsOutlinedIcon />
+        </IconButton>
+        <IconButton>
+          <SettingsOutlinedIcon />
+        </IconButton>
+        <IconButton>
+          <img
+            alt="profile-user"
+            width="20px"
+            height="20px"
+            src={`../../assets/user.jpg`}
+            style={{ cursor: "pointer", borderRadius: "50%" }}
+          />
         </IconButton>
       </Box>
     </Box>
